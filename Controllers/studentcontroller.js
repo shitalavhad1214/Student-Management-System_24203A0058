@@ -35,5 +35,5 @@ const getStudents = async (req, res) => {
 
 module.exports = {
   createStudent,
-  getstudents,
+  getStudents,
 };
