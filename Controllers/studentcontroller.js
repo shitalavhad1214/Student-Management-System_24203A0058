@@ -33,7 +33,27 @@ const getStudents = async (req, res) => {
   }
 };
 
+const updateStudent = async (req, res) => {
+  try {
+    const student = await Student.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+
+    res.status(200).json({
+      message: "Student updated successfully",
+      student,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+
 module.exports = {
   createStudent,
   getStudents,
+  updateStudent,
 };
