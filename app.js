@@ -12,6 +12,7 @@ app.use(express.json());
 
 app.use("/api/auth", require("./routes/authroutes"));
 app.use("/api/students", require("./Routes/studentroutes"));
+app.use("/api/teachers", require("./Routes/teacherroutes"));
 app.get("/", (req, res) => {
   res.send("Student Management System API");
 });
