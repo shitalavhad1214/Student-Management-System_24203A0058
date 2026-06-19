@@ -13,17 +13,20 @@ const protect = (req, res, next) => {
     const token = authHeader.startsWith("Bearer ")
       ? authHeader.split(" ")[1]
       : authHeader;
-
+    console.log("MIDDLEWARE SECRET:", process.env.JWT_SECRET);
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
     req.user = decoded;
 
     next();
   } catch (error) {
-    res.status(401).json({
-      message: "Invalid Token",
-    });
-  }
+  console.log("JWT Error:", error.message);
+
+  res.status(401).json({
+    message: error.message,
+  });
+}
+   
 };
 
 module.exports = protect;
