@@ -9,5 +9,4 @@ router.get("/", protect ,getStudents);
 router.put("/:id", protect , updateStudent);
 router.delete("/:id", protect ,deleteStudent);
 
-
 module.exports = router;
