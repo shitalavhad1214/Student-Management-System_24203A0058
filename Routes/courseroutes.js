@@ -5,8 +5,8 @@ const { createCourse, updateCourse } =require("../Controllers/coursecontroller")
 
 const protect = require("../Middleware/authMiddleware");
 
-router.post("/", createCourse);
-router.put("/:id" , updateCourse);
+router.post("/", protect ,createCourse);
+router.put("/:id" , protect, updateCourse);
 
 module.exports=router;
 

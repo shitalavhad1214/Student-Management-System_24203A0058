@@ -8,7 +8,7 @@ const {
 
 const protect = require("../middleware/authmiddleware");
 
-router.post("/",  createTeacher);
-router.get("/",  getTeachers);
+router.post("/",  protect ,createTeacher);
+router.get("/",  protect ,getTeachers);
 
 module.exports = router;
